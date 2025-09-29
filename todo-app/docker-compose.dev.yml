@@ -21,11 +21,9 @@ services:
     image: todo-backend-dev
     build:
       context: ./todo-backend/
-      dockerfile: ./todo-backend/dev.Dockerfile
+      dockerfile: dev.Dockerfile
     volumes:
       - ./todo-backend/:/usr/src/app
-    ports:
-      - 3000:3000
     environment:
       - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
       - REDIS_URL=redis://redis:6379
@@ -37,11 +35,9 @@ services:
     image: todo-frontend-dev
     build:
       context: ./todo-frontend/
-      dockerfile: ./todo-frontend/dev.Dockerfile
+      dockerfile: dev.Dockerfile
     volumes:
       - ./todo-frontend/:/usr/src/app
-    ports:
-      - 5173:5173
     container_name: todo-frontend-dev
   nginx:
     image: nginx:1.20.1
